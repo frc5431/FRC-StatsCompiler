@@ -22,14 +22,17 @@ namespace ConsoleApplication
             {
                 Console.WriteLine("Reporting..."); 
             }
-            else 
+            else if (Input.Contains("help")  
             {
+		Console.Write(helpDoc); 
             }
         }
 	public static void CSVparser()
 	{
-	 //Locate csv  
-	   
+	 //Locate CSV
+
+	 //Read and Write CSV into memmory 
+  
 	}
     }
 

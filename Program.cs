@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.VisualBasic.FileIO; 
 
 namespace ConsoleApplication
 {
@@ -20,20 +21,38 @@ namespace ConsoleApplication
         {
             if (Input.Contains("report"))
             {
-                Console.WriteLine("Reporting..."); 
+                Console.WriteLine("Reporting...");
+                CSVparser(); 
             }
-            else if (Input.Contains("help")  
+            else if (Input.Contains("help"))  
             {
 		Console.Write(helpDoc); 
             }
         }
-	public static void CSVparser()
-	{
-	 //Locate CSV
-
-	 //Read and Write CSV into memmory 
+        public static void CSVparser() 
+	    {
+            
+    extFieldParser parser = new TextFieldParser(@"Documents/output.csv");
+			List<string[]> parsedData = new List<string[]>();
+			string[] fields;
+			parser.TextFieldType = FieldType.Delimited;
+			parser.SetDelimiters(",");
+			while (!parser.EndOfData) 
+			{
+				//Processing row
+				fields = parser.ReadFields();
+				foreach (string field in fields) 
+				{
+					fields = parser.ReadFields();
+					parsedData.Add(fields);
+					//TODO: Process field
+				}
+			}
+			// Data Returned 
+			Console.Write(parsedData); 
+			parser.Close();
   
-	}
+	    }
     }
 
   }

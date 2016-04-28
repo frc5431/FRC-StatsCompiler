@@ -11,13 +11,14 @@ namespace ConsoleApplication
             string shellInput; 
   
             Console.WriteLine("FRC-DataCompiler 1.0");
-	    Console.WriteLine("X Shell Version 0.7"); 
+	    Console.WriteLine("FRC-StrongHold Build");
+	    Console.WriteLine("Welcome Titan!");  
             shellInput = Console.ReadLine();
             Commander(shellInput); 
         }
         public static void Commander(string Input)
         {
-            if (Input == "report")
+            if (Input.Contains("report"))
             {
                 Console.WriteLine("Reporting..."); 
             }
@@ -25,6 +26,11 @@ namespace ConsoleApplication
             {
             }
         }
+	public static void CSVparser()
+	{
+	 //Locate csv  
+	   
+	}
     }
 
   }
